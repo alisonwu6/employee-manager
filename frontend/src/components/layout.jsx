@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const Layout = () => {
+  const { token } = useAuth();
   return (
     <div className="flex h-screen bg-gray-100">
       <aside className="w-40 bg-white shadow-md border-r-2">
@@ -9,14 +11,16 @@ const Layout = () => {
             EM
           </div>
         </div>
-        <nav className="mt-4 text-center">
-          <Link
-            to="/employee"
-            className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
-          >
-            Employee
-          </Link>
-        </nav>
+        {token && (
+          <nav className="mt-4 text-center">
+            <Link
+              to="/employee"
+              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+            >
+              Employee
+            </Link>
+          </nav>
+        )}
       </aside>
 
       <div className="flex-1 flex flex-col">
