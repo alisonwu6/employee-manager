@@ -1,8 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const Layout = () => {
-  const { token } = useAuth();
+  const { token, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div className="flex h-screen bg-gray-100">
       <aside className="w-40 bg-white shadow-md border-r-2">
@@ -19,6 +26,12 @@ const Layout = () => {
             >
               Employee
             </Link>
+            <button
+              onClick={handleLogout}
+              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2 w-full"
+            >
+              Logout
+            </button>
           </nav>
         )}
       </aside>
