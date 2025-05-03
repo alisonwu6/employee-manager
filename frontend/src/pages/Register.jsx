@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosConfig";
 
 const Register = () => {
@@ -63,7 +63,16 @@ const Register = () => {
             className="border border-gray-300 px-2 py-1 w-96"
           />
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-between items-center">
+          <div className="text-white font-bold">
+            Have an account?
+            <Link
+              to="/login"
+              className="underline ml-2"
+            >
+              Login
+            </Link>
+          </div>
           <button
             type="submit"
             className="bg-white text-primary p-2 rounded"
