@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Employee from "./pages/Employee";
+import Register from "./pages/Register";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
           <Route
             path="/employee"
             element={<Employee />}
+          />
+          <Route
+            path="/Register"
+            element={<Register />}
           />
         </Route>
       </Routes>
