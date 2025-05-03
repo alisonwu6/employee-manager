@@ -1,17 +1,23 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const cors = require("cors");
-require("dotenv").config();
+const connectDB = require("./config/db");
 
-const healthRoutes = require("./routes/health");
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/health", healthRoutes);
+app.use("/api/auth", require("./routes/auth"));
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Export the app object for testing
+if (require.main === module) {
+  connectDB();
+  // If the file is run directly, start the server
+  const PORT = process.env.PORT || 5001;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;
