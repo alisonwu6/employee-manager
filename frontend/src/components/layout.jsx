@@ -26,6 +26,12 @@ const Layout = () => {
             >
               Employee
             </Link>
+            <Link
+              to="/profile"
+              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+            >
+              Profile
+            </Link>
             <button
               onClick={handleLogout}
               className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2 w-full"
@@ -37,7 +43,7 @@ const Layout = () => {
       </aside>
 
       <div className="flex-1 flex flex-col">
-        <header className="bg-white px-4 py-9">
+        <header className="bg-white px-4 py-9 flex justify-between items-center">
           <h1 className="text-primary text-2xl font-bold">Employee Manager</h1>
         </header>
 
