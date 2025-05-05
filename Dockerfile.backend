@@ -1,0 +1,19 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY backend/package*.json ./
+
+RUN npm install
+
+COPY backend ./
+
+# Copy the .env file to the container
+# COPY backend/.env.example ./.env
+
+# RUN echo "MONGO_URI=${MONGO_URI}" > .env
+
+
+EXPOSE 5001
+
+CMD ["npm", "run", "watch"]
