@@ -15,11 +15,11 @@ A full-stack employee management application built with React, Node.js, and Mong
 docker-compose up -d
 ```
 
-3. Access the application:
+2. Access the application:
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:5001
 
-4. Stop the application:
+3. Stop the application:
 ```bash
 docker-compose down
 ```
