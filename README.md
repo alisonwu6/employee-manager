@@ -12,12 +12,14 @@ A full-stack employee management application built with React, Node.js, and Mong
 
 1. Start the application using Docker Compose:
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 2. Access the application:
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:5001
+- Mongo Express GUI: http://localhost:8081
+  - basic auth: admin:pass
 
 3. Stop the application:
 ```bash
