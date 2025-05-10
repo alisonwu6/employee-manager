@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/health", require("./routes/health"));
+app.use("/api/notifications", require("./routes/notification"));
 
 // Export the app object for testing
 if (require.main === module) {

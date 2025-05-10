@@ -5,6 +5,7 @@ import Employee from "./pages/Employee";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Notification from "./pages/Notification";
 import { NotificationProvider } from "./components/NotificationBar";
 import "./App.css";
 
@@ -40,6 +41,14 @@ function App() {
             <Route
               path="/Login"
               element={<Login />}
+            />
+            <Route
+              path="/notification"
+              element={
+                <ProtectedRoute>
+                  <Notification />
+                </ProtectedRoute>
+              }
             />
           </Route>
         </Routes>
