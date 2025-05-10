@@ -2,7 +2,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const Layout = () => {
-  const { token, logout } = useAuth();
+  const { token, logout, user } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -45,6 +45,10 @@ const Layout = () => {
       <div className="flex-1 flex flex-col">
         <header className="bg-white px-4 py-9 flex justify-between items-center">
           <h1 className="text-primary text-2xl font-bold">Employee Manager</h1>
+          <div>
+            <span className="mr-1">Hi,</span>
+            <span className="font-bold">{user?.name}</span>
+          </div>
         </header>
 
         <main className="p-6 flex-1 overflow-y-auto bg-gradient-to-l from-primary to-white h-64 w-full">

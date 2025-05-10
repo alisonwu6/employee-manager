@@ -8,6 +8,10 @@ function Profile() {
     gender: "",
     phone: "",
     address: "",
+    email: "",
+    salary: "",
+    position: "",
+    department: "",
   });
   const { user, token } = useAuth();
 
@@ -18,10 +22,14 @@ function Profile() {
           headers: { Authorization: `Bearer ${token}` },
         });
         setFormData({
-          name: response.data.name,
-          gender: response.data.gender,
-          phone: response.data.phone,
-          address: response.data.address,
+          name: response.data.name || "",
+          gender: response.data.gender || "",
+          phone: response.data.phone || "",
+          address: response.data.address || "",
+          email: response.data.email || "",
+          salary: response.data.salary || "",
+          position: response.data.position || "",
+          department: response.data.department || "",
         });
       } catch (error) {
         alert(`Failed to fetch profile. Please try again. Error: ${error}`);
@@ -55,7 +63,7 @@ function Profile() {
               className="bg-white space-y-4 p-4"
             >
               <div className="flex items-center justify-between">
-                <label className="min-w-[100px] pl-2 text-blue-500 font-bold">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
                   Name
                 </label>
                 <input
@@ -68,7 +76,7 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[100px] pl-2 text-blue-500 font-bold">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
                   Gender
                 </label>
                 <select
@@ -83,7 +91,7 @@ function Profile() {
                 </select>
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[100px] pl-2 text-blue-500 font-bold">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
                   Phone
                 </label>
                 <input
@@ -96,7 +104,7 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[100px] pl-2 text-blue-500 font-bold">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
                   Address
                 </label>
                 <input
@@ -106,6 +114,50 @@ function Profile() {
                     setFormData({ ...formData, address: e.target.value })
                   }
                   className="border border-gray-300 px-2 py-1 w-full"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
+                  Email
+                </label>
+                <input
+                  type="text"
+                  value={formData.email}
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  disabled
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
+                  Salary
+                </label>
+                <input
+                  type="text"
+                  value={formData.salary}
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  disabled
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
+                  Position
+                </label>
+                <input
+                  type="text"
+                  value={formData.position}
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  disabled
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
+                  Department
+                </label>
+                <input
+                  type="text"
+                  value={formData.Department}
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  disabled
                 />
               </div>
               <div className="flex justify-end">

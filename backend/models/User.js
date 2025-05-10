@@ -9,6 +9,9 @@ const userSchema = new mongoose.Schema({
   gender: { type: String },
   phone: { type: String },
   address: { type: String },
+  salary: { type: Number },
+  position: { type: String },
+  department: { type: String },
 });
 
 userSchema.pre("save", async function (next) {
