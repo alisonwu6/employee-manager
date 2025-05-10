@@ -39,6 +39,12 @@ const Layout = () => {
               Employee
             </Link>
             <Link
+              to="/notification"
+              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+            >
+              Notification
+            </Link>
+            <Link
               to="/profile"
               className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
             >
