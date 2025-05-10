@@ -1,12 +1,24 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { NotificationContainer, useNotification } from "./NotificationBar";
+import { useRef, useLayoutEffect, useState } from "react";
 
 const Layout = () => {
   const { token, logout, user } = useAuth();
   const navigate = useNavigate();
+  const { showNotification } = useNotification();
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.offsetHeight);
+    }
+  }, []);
 
   const handleLogout = () => {
     logout();
+    showNotification('Log out, please log in to access the employee manager.', 'success');
     navigate("/login");
   };
 
@@ -42,14 +54,16 @@ const Layout = () => {
         )}
       </aside>
 
-      <div className="flex-1 flex flex-col">
-        <header className="bg-white px-4 py-9 flex justify-between items-center">
+      <div className="flex-1 flex flex-col relative">
+        <header ref={headerRef} className="bg-white px-4 py-9 flex justify-between items-center">
           <h1 className="text-primary text-2xl font-bold">Employee Manager</h1>
           <div>
             <span className="mr-1">Hi,</span>
             <span className="font-bold">{user?.name}</span>
           </div>
         </header>
+
+        <NotificationContainer top={headerHeight} />
 
         <main className="p-6 flex-1 overflow-y-auto bg-gradient-to-l from-primary to-white h-64 w-full">
           <Outlet />

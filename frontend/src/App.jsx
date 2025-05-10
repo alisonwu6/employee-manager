@@ -5,43 +5,46 @@ import Employee from "./pages/Employee";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import { NotificationProvider } from "./components/NotificationBar";
 import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route
-          path="/"
-          element={<Layout />}
-        >
+    <NotificationProvider>
+      <div>
+        <Routes>
           <Route
-            path="/employee"
-            element={
-              <ProtectedRoute>
-                <Employee />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/Register"
-            element={<Register />}
-          />
-          <Route
-            path="/Login"
-            element={<Login />}
-          />
-        </Route>
-      </Routes>
-    </div>
+            path="/"
+            element={<Layout />}
+          >
+            <Route
+              path="/employee"
+              element={
+                <ProtectedRoute>
+                  <Employee />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/Register"
+              element={<Register />}
+            />
+            <Route
+              path="/Login"
+              element={<Login />}
+            />
+          </Route>
+        </Routes>
+      </div>
+    </NotificationProvider>
   );
 }
 
