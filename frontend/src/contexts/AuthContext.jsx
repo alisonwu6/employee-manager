@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
     if (tokenStored && userStored) {
       setToken(tokenStored);
-      setUser(userStored);
+      setUser(JSON.parse(userStored));
     } else {
       logout();
     }
