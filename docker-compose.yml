@@ -34,6 +34,7 @@ services:
       - MONGO_URI=mongodb://admin:admin@mongodb:27017/employ-manager?authSource=admin
       - NODE_ENV=development
       - PORT=5001
+      - JWT_SECRET=bf4768075ed349c6f0973f70471cca49
     networks:
       - app-network
     depends_on:
