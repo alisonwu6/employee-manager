@@ -56,6 +56,10 @@ const getProfile = async (req, res) => {
       gender: user.gender,
       phone: user.phone,
       address: user.address,
+      email: user.email,
+      salary: user.salary,
+      position: user.position,
+      department: user.department,
     });
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
