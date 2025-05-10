@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/health", require("./routes/health"));
 
 // Export the app object for testing
 if (require.main === module) {
