@@ -1,3 +1,6 @@
 module.exports = {
-    ANNUAL_LIMIT_COUNT: 15
+    ANNUAL_LIMIT_COUNT: 15,
+    ENABLE_SMS_NOTIFIER: false,
+    ENABLE_EMAIL_NOTIFIER: false,
+    ENABLE_IN_APP_NOTIFICATION: true
 };

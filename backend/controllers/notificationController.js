@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Notification = require("../models/Notification");
-const { sendNotification } = require("../utils/notification");
+const NotifierFacade = require("../utils/notifier/notifierFacade");
+const notifier = new NotifierFacade();
 
 function getUser(userId) {
   return new Promise((resolve, reject) => {
@@ -57,9 +58,13 @@ const createNotification = async (req, res) => {
     const user = await getUser(req.user.id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    sendNotification(recipient, req.user.id, message, { link: link });
+    notifier.notify({
+      from: user._id,
+      to: recipient,
+      body: message,
+      options: { link: link }
+    });
     
-
     res.status(200).send();
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });

@@ -2,7 +2,9 @@ const User = require("../models/User");
 const Leave = require("../models/Leave");
 const { getLeaveQueryStrategy } = require("../utils/leaveQueryStrategy");
 const config = require('../config/config');
-const { sendNotification } = require("../utils/notification");
+const NotifierFacade = require("../utils/notifier/notifierFacade");
+
+const notifier = new NotifierFacade();
 
 function getUser(userId) {
   return new Promise((resolve, reject) => {
@@ -59,7 +61,7 @@ const createLeave = async (req, res) => {
     if (!user) return res.status(404).json({ message: "User not found" });
     
     const remainingLeaveCount = await getRemainingLeaveCount(user._id);
-    if (remainingLeaveCount >= config.ANNUAL_LIMIT_COUNT) return res.status(403).json({ message: "You've reach the annual leave request limit" });
+    if (remainingLeaveCount <= 0) return res.status(403).json({ message: "You've reach the annual leave request limit" });
 
     const { selectedDate, reason, leaveType } = req.body;
     await Leave.create({
@@ -76,12 +78,14 @@ const createLeave = async (req, res) => {
     });
 
     for (const manager of managers) {
-      await sendNotification(
-        manager._id,
-        user._id,
-        `New leave request from ${user.name}`,
-        { link: '/leaves' }
-      );
+      notifier.notify(
+        {
+          from: user._id,
+          to: manager._id,
+          body: `New leave request from ${user.name}`,
+          options: { link: '/leaves' }
+        }
+      )
     }
 
     res.status(200).send();
@@ -111,10 +115,14 @@ async function makeDecision(leaveId, adminId, decision) {
     await leave.save();
 
     // Send notification to leave applier
-    await sendNotification(leave.applier, adminId, 
-      `Your leave request has been ${decision}`, 
-      { link: '/leaves' }
-    );
+    notifier.notify(
+      {
+        from: adminId,
+        to: leave.applier,
+        body: `Your leave request has been ${decision}`, 
+        options: { link: '/leaves' }
+      }
+    )
 
     return leave;
   } catch (error) {
