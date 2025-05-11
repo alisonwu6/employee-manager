@@ -14,6 +14,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/health", require("./routes/health"));
 app.use("/api/notifications", require("./routes/notification"));
+app.use("/api/leaves", require("./routes/leave"));
 
 // app.get("/test-error", (req, res) => {
 //   throw new Error("testing errorHandlerMiddleware");

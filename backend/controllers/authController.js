@@ -44,6 +44,7 @@ const login = async (req, res) => {
         name: user.name,
         email: user.email,
         token: generateToken(user.id),
+        isAdmin: user.isAdmin()
       });
     } else {
       Logger.error("login", "post", `Invalid email or password: ${email}`);
