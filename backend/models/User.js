@@ -20,4 +20,8 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+userSchema.methods.isAdmin = function() {
+  return this.role === "admin";
+};
+
 module.exports = mongoose.model("User", userSchema);
