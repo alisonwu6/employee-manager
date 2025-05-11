@@ -69,6 +69,21 @@ const createLeave = async (req, res) => {
       selectedDate: new Date(selectedDate).setHours(0,0,0,0)
     });
 
+    // Notify department managers about the leave request
+    const managers = await User.find({ 
+      role: "admin",
+      department: user.department 
+    });
+
+    for (const manager of managers) {
+      await sendNotification(
+        manager._id,
+        user._id,
+        `New leave request from ${user.name}`,
+        { link: '/leaves' }
+      );
+    }
+
     res.status(200).send();
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
