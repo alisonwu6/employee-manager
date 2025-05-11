@@ -21,7 +21,7 @@ const Layout = () => {
     showNotification('Log out, please log in to access the employee manager.', 'success');
     navigate("/login");
   };
-
+console.log(user);
   return (
     <div className="flex h-screen bg-gray-100">
       <aside className="w-40 bg-white shadow-md border-r-2">
@@ -39,7 +39,13 @@ const Layout = () => {
               Employee
             </Link>
             <Link
-              to="/notification"
+              to="/leaves"
+              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+            >
+              Leave
+            </Link>
+            <Link
+              to="/notifications"
               className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
             >
               Notification

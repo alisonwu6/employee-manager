@@ -3,3 +3,12 @@
   height: 87px;
   font-size: 43px;
 }
+
+.react-calendar {
+  border-radius: 1.25rem;
+}
+.react-calendar__navigation {
+  background-color: #5689B7;
+  color: white;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
