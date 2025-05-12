@@ -8,23 +8,33 @@ const generateToken = (id) => {
 };
 
 const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { token, password } = req.body;
   Logger.log("register", "post", `register: ${email}`);
 
   try {
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      Logger.error("register", "post", `Email already exists: ${email}`);
-      return res.status(400).json({ message: "User already exists" });
-    }
+    // const userExists = await User.findOne({ email });
+    // if (userExists) {
+    //   Logger.error("register", "post", `Email already exists: ${email}`);
+    //   return res.status(400).json({ message: "User already exists" });
+    // }
 
-    const user = await User.create({ name, email, password });
-    res.status(201).json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user.id),
-    });
+    // const user = await User.create({ name, email, password });
+    // TODO
+    // backend/employee: adding new employee -> encode info -> send email 
+    // Employee adds field account status: inactive || active
+
+    // TODO
+    // check if token expired?
+    // check register status and update to User
+    // update password to User
+
+    // res.status(201).json({
+    //   id: user.id,
+    //   name: user.name,
+    //   email: user.email,
+    //   token: generateToken(user.id),
+    // });
+
     Logger.log("register", "post", `Registered new user: ${email}`);
   } catch (error) {
     Logger.error("register", "post", `Internal server error: ${error.message}`);
