@@ -1,10 +1,10 @@
 const User = require("../models/User");
 const Leave = require("../models/Leave");
-const { getLeaveQueryStrategy } = require("../utils/leaveQueryStrategy");
+const { getLeaveQueryStrategy } = require("../utils/LeaveQueryStrategy");
 const config = require('../config/config');
-const NotifierFacade = require("../utils/notifier/notifierFacade");
+const NotifierService = require("../utils/notifier/NotifierService");
 
-const notifier = new NotifierFacade();
+const notifier = new NotifierService();
 
 function getUser(userId) {
   return new Promise((resolve, reject) => {
@@ -74,11 +74,11 @@ const createLeave = async (req, res) => {
     // Notify department managers about the leave request
     const managers = await User.find({ 
       role: "admin",
-      department: user.department 
+      department: user.department
     });
 
     for (const manager of managers) {
-      notifier.notify(
+      notifier.sendNotification(
         {
           from: user._id,
           to: manager._id,
