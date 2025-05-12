@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { ServerRouter, useNavigate, useParams } from "react-router-dom";
-import EmployeeProxy from "./employeeProxy";
+import axiosInstance from "../../api/axiosConfig";
+import {useAuth} from "../../contexts/AuthContext";
 
 const EmployeeEdit = () => {
     const {id} = useParams();
@@ -16,13 +17,12 @@ const EmployeeEdit = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const employeeProxy = new EmployeeProxy('admin');
-
+    const {user, token} = useAuth();
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const employee = await employeeProxy.getEmployeesById(id);
-
+                const response = await axiosInstance.get(`/api/employees/${id}`, {headers: { Authorization: `Bearer ${token}` }});
+                const employee = response.data;
                 if (employee){
                     setFormData({
                         name: employee.name || '',
@@ -56,7 +56,7 @@ const EmployeeEdit = () => {
         e.preventDefault();
 
         try {
-            await employeeProxy.updateEmployee(id, formData);
+            await axiosInstance.put(`/api/employees/${id}`, formData, {headers: { Authorization: `Bearer ${token}` }});
             navigate('/employee')
         } catch(err){
             setError(err.message);
@@ -66,7 +66,7 @@ const EmployeeEdit = () => {
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete this employee?')){
             try {
-                await employeeProxy.deleteEmployee(id);
+                await axiosInstance.delete(`/api/employees/${id}`, {headers: { Authorization: `Bearer ${token}` }});
                 navigate('/employee');
             } catch (err) {
                 setError(err.message);

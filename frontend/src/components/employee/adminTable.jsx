@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import EmployeeProxy from "./employeeProxy";
+import axiosInstance from "../../api/axiosConfig";
+import {useAuth} from "../../contexts/AuthContext";
 
 const AdminEmployeeTable = () => {
     const [employees, setEmployees] = useState([]);
@@ -8,13 +9,12 @@ const AdminEmployeeTable = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const employeeProxy = new EmployeeProxy('admin');
-
+    const {user, token} = useAuth();
     useEffect(() => {
         const fetchEmployees = async () => {
             try {
-                const data = await employeeProxy.getEmployees();
-                setEmployees(data);
+                const data = await axiosInstance.get('/api/employees', {headers: { Authorization: `Bearer ${token}` }});
+                setEmployees(data.data);
                 setLoading(false);
             } catch (err) {
                 setError('Failed to fetch employees');
@@ -33,7 +33,7 @@ const AdminEmployeeTable = () => {
         navigate('/employee/add');
     };
 
-    if (loading) return <div className="text-center mt-4">Loading...</div>;
+    if (loading) return <div className="text-center mt-4 ">Loading...</div>;
     if (error) return <div className="text-center mt-4 text-red-500">{error}</div>;
 
     const emptyRows = Array(10 - employees.length > 0 ? 10 - employees.length : 0).fill(0);

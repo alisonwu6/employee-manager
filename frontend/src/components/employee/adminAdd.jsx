@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import EmployeeProxy from "./employeeProxy";
+import axiosInstance from "../../api/axiosConfig";
+import {useAuth} from "../../contexts/AuthContext";
 
-const EmployeeAdd = ({ userRole}) => {
+const EmployeeAdd = ({ isAdmin}) => {
+    const {user, token} = useAuth();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -12,8 +14,6 @@ const EmployeeAdd = ({ userRole}) => {
     });
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
-    const employeeProxy = new EmployeeProxy(userRole);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -25,9 +25,8 @@ const EmployeeAdd = ({ userRole}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try{
-            await employeeProxy.addEmployee(formData);
+            await axiosInstance.post('/api/employees', formData, {headers: { Authorization: `Bearer ${token}` }});
             navigate('/employee');
         } catch (err) {
             setError(err.message);

@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
-import EmployeeProxy from "./employeeProxy";
+import axiosInstance from "../../api/axiosConfig";
+import {useAuth} from "../../contexts/AuthContext";
 
 const UserEmployeeTable = () => {
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const employeeProxy = new EmployeeProxy('employee');
-
+    const {user, token} = useAuth();
     useEffect(() => {
         const fetchEmployees = async () => {
             try {
-                const data = await employeeProxy.getEmployees();
-                setEmployees(data);
+                const data = await axiosInstance.get('/api/employees', {headers: { Authorization: `Bearer ${token}` }});
+                setEmployees(data.data);
                 setLoading(false);
             } catch (err) {
                 setError('Failed to fetch employees');

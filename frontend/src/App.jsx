@@ -16,12 +16,11 @@ function App() {
       <div>
         <Routes>
           <Route
-<<<<<<< HEAD
             path="/"
             element={<Layout />}
           >
             <Route
-              path="/employee"
+              path="/employee/*"
               element={
                 <ProtectedRoute>
                   <Employee />
@@ -64,34 +63,6 @@ function App() {
         </Routes>
       </div>
     </NotificationProvider>
-=======
-            path="/employee/*"
-            element={
-              <ProtectedRoute>
-                <Employee />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/Register"
-            element={<Register />}
-          />
-          <Route
-            path="/Login"
-            element={<Login />}
-          />
-        </Route>
-      </Routes>
-    </div>
->>>>>>> db1840a (Unfinifshed employee CRUD)
   );
 }
 
