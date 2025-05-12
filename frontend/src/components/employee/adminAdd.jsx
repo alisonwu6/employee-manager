@@ -46,40 +46,40 @@ const EmployeeAdd = ({ isAdmin}) => {
                     </div>
                 )}
 
-                <div className="bg-white p-6 rounded shadow-md">
+                <div className="bg-white p-5 shadow-md">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <lable className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="name">
                                 Name:
                             </lable>
-                            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="email">
                                 Email:
                             </lable>
-                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-gray-700 text-sm font-bold mb-2" htmlFor="position">
+                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="position">
                                 Position:
                             </lable>
-                            <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-gray-700 text-sm font-bold mb-2" htmlFor="department">
+                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="department">
                                 Department:
                             </lable>
-                            <input type="text" id="department" name="department" value={formData.department} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            <input type="text" id="department" name="department" value={formData.department} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-6">
-                            <lable className="block text-gray-700 text-sm font-bold mb-2" htmlFor="salary">
+                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="salary">
                                 Salary:
                             </lable>
-                            <input type="number" id="salary" name="salary" value={formData.salary} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            <input type="number" id="salary" name="salary" value={formData.salary} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="flex justify-end">
-                            <button type="submit" className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" className="text-sm bg-primary hover:bg-blue-100 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Add
                             </button>
                         </div>

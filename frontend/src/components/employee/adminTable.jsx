@@ -41,9 +41,13 @@ const AdminEmployeeTable = () => {
     return (
         <div className="h-full flex flex-col items-center pt-6">
             <div className="w-4/5 max-w-4x1">
-                <div className="bg-primary py-3 text-white text-center flex justify-between items-center px-4">
-                    <h2 className="text-lg font-medium">Employee Record</h2>
-                    <button onClick={handleAdd} className="bg-white text-primary px-4 py-1 rounded hover: bg-blue-100"><span className="font-bold">+</span></button>
+                <div className="bg-primary py-3 text-white px-4 relative">
+                    <div className="text-center"> 
+                        <h2 className="text-lg font-medium ">
+                            Employee Record
+                        </h2>
+                    </div>
+                    <button onClick={handleAdd} className="text-sm bg-sky-800 text-white px-4 py-1 rounded hover:bg-blue-100 absolute right-8 top-1/2 transform -translate-y-1/2"><span>Add</span></button>
                 </div>
 
                 <table className="w-full bg-white border-collapse">
