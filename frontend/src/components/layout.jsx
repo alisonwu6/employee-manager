@@ -78,7 +78,9 @@ console.log(user);
         <NotificationContainer top={headerHeight} />
 
         <main className="p-6 flex-1 overflow-y-auto bg-gradient-to-l from-primary to-white h-64 w-full">
-          <Outlet />
+          <div className="mt-10">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

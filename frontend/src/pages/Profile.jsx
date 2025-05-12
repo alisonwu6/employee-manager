@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import axiosInstance from "../api/axiosConfig";
+import { NotificationContainer, useNotification } from "../components/NotificationBar";
 
 function Profile() {
   const [formData, setFormData] = useState({
@@ -14,11 +15,12 @@ function Profile() {
     department: "",
   });
   const { user, token } = useAuth();
+  const { showNotification } = useNotification();
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axiosInstance.get("/api/auth/profile", {
+        const response = await axiosInstance.get("/api/users/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setFormData({
@@ -41,10 +43,10 @@ function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.post("/api/auth/profile", formData, {
+      await axiosInstance.post("/api/users/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      alert("Profile Updated!");
+      showNotification("Profile Updated", "success");
     } catch (error) {
       alert(`Login failed: ${error.response.data.message}`);
     }
@@ -69,10 +71,8 @@ function Profile() {
                 <input
                   type="text"
                   value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="border border-gray-300 px-2 py-1 w-full"
+                  className="bg-gray-100 text-gray-400  border border-gray-300 px-2 py-1 w-full "
+                  disabled
                 />
               </div>
               <div className="flex items-center justify-between">
@@ -80,6 +80,7 @@ function Profile() {
                   Gender
                 </label>
                 <select
+                  value={formData.gender}
                   onChange={(e) =>
                     setFormData({ ...formData, gender: e.target.value })
                   }
