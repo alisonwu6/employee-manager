@@ -1,0 +1,14 @@
+2025-05-10T23:32:42.851Z - Log : [register | post] - Message: register: shelley@shelley.com
+2025-05-10T23:32:42.926Z - Log : [register | post] - Message: Registered new user: shelley@shelley.com
+2025-05-10T23:33:01.188Z - Log : [login | post] - Message: login attempt: shelley@shelley.com
+2025-05-10T23:33:01.241Z - Log : [login | post] - Message: logged in: shelley@shelley.com
+2025-05-11T00:08:11.315Z - Log : [login | post] - Message: login attempt: admin@test.com
+2025-05-11T00:08:11.373Z - Error : [login | post] - Message: Invalid email or password: admin@test.com
+2025-05-11T00:08:28.823Z - Log : [login | post] - Message: login attempt: admin@test.com
+2025-05-11T00:08:28.873Z - Error : [login | post] - Message: Invalid email or password: admin@test.com
+2025-05-11T00:11:33.707Z - Log : [login | post] - Message: login attempt: shelley@shelley.com
+2025-05-11T00:11:33.759Z - Log : [login | post] - Message: logged in: shelley@shelley.com
+2025-05-11T00:12:21.752Z - Log : [register | post] - Message: register: sean@sean.com
+2025-05-11T00:12:21.814Z - Log : [register | post] - Message: Registered new user: sean@sean.com
+2025-05-11T00:13:09.187Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-11T00:13:09.238Z - Log : [login | post] - Message: logged in: sean@sean.com
