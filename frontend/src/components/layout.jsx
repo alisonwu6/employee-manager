@@ -69,10 +69,10 @@ console.log(user);
       <div className="flex-1 flex flex-col relative">
         <header ref={headerRef} className="bg-white px-4 py-9 flex justify-between items-center">
           <h1 className="text-primary text-2xl font-bold">Employee Manager</h1>
-          <div>
+          { user && <div>
             <span className="mr-1">Hi,</span>
             <span className="font-bold">{user?.name}</span>
-          </div>
+          </div>}
         </header>
 
         <NotificationContainer top={headerHeight} />
