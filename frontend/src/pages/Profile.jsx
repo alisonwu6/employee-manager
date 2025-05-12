@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import axiosInstance from "../api/axiosConfig";
-import { NotificationContainer, useNotification } from "../components/NotificationBar";
+import {
+  NotificationContainer,
+  useNotification,
+} from "../components/NotificationBar";
+import avatar from "../assets/avatar.png";
 
 function Profile() {
   const [formData, setFormData] = useState({
@@ -54,7 +58,7 @@ function Profile() {
 
   return (
     <div className="bg-white p-6 shadow-lg">
-      <div className="grid grid-cols-[6fr_4fr]">
+      <div className="grid grid-cols-[6fr_4fr] gap-4">
         <div className="">
           <h1 className="text-2xl font-bold text-center bg-primary py-2 text-white">
             Profile
@@ -169,7 +173,15 @@ function Profile() {
             </form>
           </div>
         </div>
-        <div className="bg-gray-100 p-4">avatar</div>
+        <div className=" bg-primary p-6">
+          <div className="bg-gray-100 p-6 h-full flex justify-center items-center">
+            <img
+              src={avatar}
+              alt="Avatar"
+              className="h-[400px]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
