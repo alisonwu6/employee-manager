@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/users", require("./routes/user"));
 app.use("/api/health", require("./routes/health"));
 app.use("/api/notifications", require("./routes/notification"));
 app.use("/api/leaves", require("./routes/leave"));
