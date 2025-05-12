@@ -106,7 +106,7 @@ export default function LeavePage() {
             <div className="flex flex-col gap-4 justify-center flex-shrink-0 min-w-[170px]">
               <div className="flex items-center text-white font-bold">
                 <span className="text-[#6096B4]">Leave balance:</span>
-                <span className="ml-2 bg-[#c9dbe9] text-[#274c5b] px-2 py-1 rounded font-bold text-lg">{String(leaveBalance).padStart(3, "0")}</span>
+                <span className="ml-2 bg-[#c9dbe9] text-[#274c5b] px-2 py-1 rounded font-bold text-lg">{leaveBalance}</span>
               </div>
               <div className="flex items-center text-white font-bold">
                 <span className="text-[#6096B4]">Selected date:</span>
@@ -140,7 +140,7 @@ export default function LeavePage() {
                   });
                 }} required></textarea>
               </div>
-              <button className="bg-[#6096B4] text-white font-bold px-6 py-2 rounded shadow" onClick={handeReadRequest}>
+              <button className="bg-[#6096B4] text-white font-bold px-6 py-2 rounded shadow" onClick={handeReadRequest} disabled={leaveBalance <= -5}>
                 Submit request
               </button>
             </div>

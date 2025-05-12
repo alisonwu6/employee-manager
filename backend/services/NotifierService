@@ -1,8 +1,8 @@
-const Notifiable = require('./notifiable');
-const { InAppNotifier } = require('./inAppNotifier');
-const { EmailNotifier } = require('./emailNotifier');
-const { SMSNotifier } = require('./SMSNotifier');
-const config = require('../../config/config');
+const Notifiable = require('../utils/notifier/Notifiable');
+const { InAppNotifier } = require('../utils/notifier/inAppNotifier');
+const { EmailNotifier } = require('../utils/notifier/emailNotifier');
+const { SMSNotifier } = require('../utils/notifier/SMSNotifier');
+const config = require('../config/config');
 
 class NotificationSubject {
   observers;

@@ -37,7 +37,7 @@ class AdminQuery extends UserQuery {
 }
   
 function getLeaveQueryStrategy(user) {
-    if (user.role === "employee") {
+    if (user.isAdmin()) {
       return new AdminQuery(user);
     }
     return new UserQuery(user);

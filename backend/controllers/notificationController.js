@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const Notification = require("../models/Notification");
-const NotifierService = require("../utils/notifier/NotifierService");
+const NotifierService = require("../services/NotifierService");
 const notifier = new NotifierService();
 
 function getUser(userId) {
