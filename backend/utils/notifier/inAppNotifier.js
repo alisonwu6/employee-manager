@@ -1,4 +1,4 @@
-const Notifiable = require('./notifiable');
+const Notifiable = require('./Notifiable');
 const NotificationModel = require("../../models/Notification");
 
 class InAppNotifier extends Notifiable {

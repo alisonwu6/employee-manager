@@ -1,0 +1,76 @@
+const Notifiable = require('../utils/notifier/Notifiable');
+const { InAppNotifier } = require('../utils/notifier/inAppNotifier');
+const { EmailNotifier } = require('../utils/notifier/emailNotifier');
+const { SMSNotifier } = require('../utils/notifier/SMSNotifier');
+const config = require('../config/config');
+
+class NotificationSubject {
+  observers;
+
+  constructor() {
+    this.observers = new Map();
+  }
+  attach(channel, observer) {
+    this.observers.set(channel, observer);
+  }
+
+  detach(channel) {
+    this.observers.delete(channel);
+  }
+
+  notify(data) {
+    // send notification to all subscribed channels
+    this.observers.forEach((observer, channel) => {
+      observer.update(data);
+    });
+  }
+}
+
+class NotificationObserver {
+  notifier;
+
+  constructor(notifier) {
+    this.notifier = notifier;
+  }
+
+  update(data) {
+    const { from, to, body, options } = data;
+    this.notifier.deliver({ from, to, body, options });
+  }
+}
+
+class NotifierService extends NotificationSubject {
+  constructor() {
+    super();
+    this.initializeChannels();
+  }
+
+  initializeChannels() {
+    const channelConfig = {
+      email: {
+        enabled: config.ENABLE_EMAIL_NOTIFIER,
+        notifier: EmailNotifier
+      },
+      sms: {
+        enabled: config.ENABLE_SMS_NOTIFIER,
+        notifier: SMSNotifier
+      },
+      inApp: {
+        enabled: config.ENABLE_IN_APP_NOTIFICATION,
+        notifier: InAppNotifier
+      }
+    };
+
+    Object.entries(channelConfig).forEach(([channel, { enabled, notifier }]) => {
+      if (enabled) {
+        this.attach(channel, new NotificationObserver(new notifier()));
+      }
+    });
+  }
+
+  sendNotification(data) {
+    this.notify(data);
+  }
+}
+
+module.exports = NotifierService;
