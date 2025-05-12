@@ -18,3 +18,13 @@
 2025-05-12T02:45:16.502Z - Log : [login | post] - Message: logged in: sean@sean.com
 2025-05-12T21:27:19.792Z - Log : [login | post] - Message: login attempt: sean@sean.com
 2025-05-12T21:27:19.937Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-12T22:03:29.039Z - Log : [login | post] - Message: login attempt: shelley@shelley.com
+2025-05-12T22:03:29.177Z - Log : [login | post] - Message: logged in: shelley@shelley.com
+2025-05-12T22:06:59.162Z - Log : [profile | get] - Message: UserId: 681fe21af9e2925a968a679b
+2025-05-12T22:06:59.163Z - Log : [profile | get] - Message: UserId: 681fe21af9e2925a968a679b
+2025-05-12T22:06:59.181Z - Log : [profile | get] - Message: UserId: 681fe21af9e2925a968a679b
+2025-05-12T22:06:59.181Z - Log : [profile | get] - Message: UserId: 681fe21af9e2925a968a679b
+2025-05-12T22:08:05.265Z - Log : [login | post] - Message: login attempt: 
+2025-05-12T22:08:05.274Z - Error : [login | post] - Message: Invalid email or password: 
+2025-05-12T22:08:34.949Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-12T22:08:35.061Z - Log : [login | post] - Message: logged in: sean@sean.com
