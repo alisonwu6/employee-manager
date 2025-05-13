@@ -83,8 +83,8 @@ export default function LeavePage() {
   }
 
   return (
-    <div className="flex gap-8 justify-stretch items-start min-h-screen bg-gradient-to-br from-[#e0ecf7] to-[#5b97b1] p-8 w-full">
-      <div className="bg-white rounded shadow-lg p-6 min-w-[672px] w-full">
+    <div className="flex flex-col md:flex-row gap-8 justify-stretch items-start min-h-screen bg-gradient-to-br from-[#e0ecf7] to-[#5b97b1] p-4 md:p-8 w-full overflow-x-auto">
+      <div className="bg-white rounded shadow-lg p-6 flex-1 max-w-full mb-8 md:mb-0 border-2">
         <div className="bg-[#8EBFD8] text-[#274c5b] text-center font-bold py-2 rounded-t">
           Request For Day Off
         </div>
@@ -121,7 +121,7 @@ export default function LeavePage() {
                   onChange={(e) =>
                     setFormData({ ...formData, leaveType: e.target.value })
                   }
-                  className="border border-gray-300 px-2 py-1 w-full text-[#6096B4] ml-3"
+                  className="border border-gray-300 px-2 py-1 text-[#6096B4] ml-3"
                 >
                   <option value="Paid Leave">Paid Leave</option>
                   <option value="Sick Leave">Sick Leave</option>
@@ -148,7 +148,7 @@ export default function LeavePage() {
         </div>
       </div>
 
-      <div className="bg-white rounded shadow-lg p-4 min-w-[353px] max-w-[450px] w-full">
+      <div className="bg-white rounded shadow-lg p-4 md:max-w-[30%] w-full">
       {user.isAdmin && (
           <>
             <div className="mb-5">

@@ -5,8 +5,13 @@
 }
 
 .react-calendar {
+  width: 100vw !important;
+  min-width: 0;
+  width: 30vw;
+  box-sizing: border-box;
   border-radius: 1.25rem;
 }
+
 .react-calendar__navigation {
   background-color: #5689B7;
   color: white;
