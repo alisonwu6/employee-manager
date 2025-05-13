@@ -55,9 +55,11 @@ const AdminEmployeeTable = () => {
                         <tr className="bg-gray-100">
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Name</th>
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Email</th>
+                            <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Role</th>
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Position</th>
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Department</th>
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Salary</th>
+                            <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Status</th>
                             <th className="py-2 text-center text-xs font-medium text-primary uppercase tracking-wider border">Action</th>
                         </tr>
                     </thead>
@@ -67,9 +69,11 @@ const AdminEmployeeTable = () => {
                             <tr key={employee._id || employee.id} className="bg-white border-b">
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.name}</td>
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.email}</td>
+                                <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.role}</td>
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.position}</td>
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.department}</td>
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.salary}</td>
+                                <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">{employee.active ? "Active" :  "Inactive"}</td>
                                 <td className="py-2 whitespace-nowrap text-center text-sm text-primary border">
                                     <button onClick={() => handleEdit(employee._id || employee.id)} className="bg-primary text-white px-4 py-1 rounded hover:bg-blue-100">Edit</button>
                                 </td>
