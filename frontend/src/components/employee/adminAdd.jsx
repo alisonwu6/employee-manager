@@ -2,6 +2,10 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../api/axiosConfig";
 import {useAuth} from "../../contexts/AuthContext";
+import {
+    NotificationContainer,
+    useNotification,
+} from "../../components/NotificationBar";
 
 const EmployeeAdd = ({ isAdmin}) => {
     const {user, token} = useAuth();
@@ -14,7 +18,9 @@ const EmployeeAdd = ({ isAdmin}) => {
         role: 'employee'
     });
     const [error, setError] = useState(null);
+    const [registerUrl, setRegisterUrl] = useState(null);
     const navigate = useNavigate();
+    const { showNotification } = useNotification();
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -27,12 +33,21 @@ const EmployeeAdd = ({ isAdmin}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            await axiosInstance.post('/api/employees', formData, {headers: { Authorization: `Bearer ${token}` }});
-            navigate('/employee');
+            const res = await axiosInstance.post('/api/employees', formData, {headers: { Authorization: `Bearer ${token}` }});
+            const registerToken = res.data.registerToken;
+            const registerUrl = `${window.location.origin}/register?token=${registerToken}`;
+            setRegisterUrl(registerUrl);;
+            showNotification("Employee Added", "success");
         } catch (err) {
             setError(err.message);
         }
     };
+
+    const handleCopy = async () => {
+        navigator.clipboard.writeText(registerUrl).then(() => {
+            alert("Link Copied!");
+        });
+    }
 
     return (
         <div className="h-full flex flex-col items-center pt-6">
@@ -48,6 +63,14 @@ const EmployeeAdd = ({ isAdmin}) => {
                 )}
 
                 <div className="bg-white p-5 shadow-md">
+                    { registerUrl && (
+                        <div className="block text-primary text-sm font-bold my-2 border-primary rounded border p-4">
+                            Please click the button to copy the registration URL:
+                            <button onClick={handleCopy} className="text-sm bg-primary text-white hover:bg-white hover:text-primary font-bold rounded outline ml-2 p-1">
+                                Copy
+                            </button>
+                        </div>
+                    )}
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="block text-primary text-sm font-bold mb-2" htmlFor="name">
@@ -99,7 +122,9 @@ const EmployeeAdd = ({ isAdmin}) => {
                                 <option value="operations">Operations</option>
                                 <option value="sales">Sales</option>
                                 <option value="marketing">Marketing</option>
-                                <option value="information technology">Information Technology</option>
+                                <option value="frontend">Frontend</option>
+                                <option value="backend">Backend</option>
+                                <option value="design">Design</option>
                             </select>
                         </div>
                         <div className="mb-6">
@@ -109,9 +134,11 @@ const EmployeeAdd = ({ isAdmin}) => {
                             <input type="number" id="salary" name="salary" value={formData.salary} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="flex justify-end">
-                            <button type="submit" className="text-sm bg-primary hover:bg-blue-100 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                Add
-                            </button>
+                            {!registerUrl &&
+                                <button type="submit" className="text-sm bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Add
+                                </button>
+                            }
                         </div>
                     </form>
                 </div>

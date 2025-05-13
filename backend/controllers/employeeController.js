@@ -1,4 +1,5 @@
 const EmployeeProxy = require('../proxies/EmployeeProxy');
+const jwt = require("jsonwebtoken");
 
 exports.getAllEmployees = async (req, res) => {
     try {
@@ -40,7 +41,16 @@ exports.createEmployee = async (req, res) => {
     try {
         const employeeProxy = new EmployeeProxy(req.user.isAdmin());
         const employee = await employeeProxy.create(req.body);
-        res.status(201).json(employee);
+
+        const registerToken = jwt.sign(
+            {
+                email: employee.email,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: "24h" }
+        );
+
+        res.status(201).json({ registerToken });
     } catch (error) {
         if (error.message === 'Unauthorized: Admin Only') {
             return res.status(403).json({

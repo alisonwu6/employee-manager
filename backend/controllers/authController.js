@@ -8,28 +8,43 @@ const generateToken = (id) => {
 };
 
 const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { token, password, email } = req.body;
   Logger.log("register", "post", `register: ${email}`);
 
   try {
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      Logger.error("register", "post", `Email already exists: ${email}`);
-      return res.status(400).json({ message: "User already exists" });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const { email } = decoded;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      Logger.error(
+        "register",
+        "post",
+        `User not found for token email: ${email}`
+      );
+      return res.status(404).json({ message: "User not found" });
     }
 
-    const user = await User.create({ name, email, password });
+    if (user.active) {
+      Logger.error("register", "post", `User already activated: ${email}`);
+      return res.status(400).json({ message: "Account already registered" });
+    }
+
+    user.password = password;
+    user.active = true;
+    await user.save();
     res.status(201).json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user.id),
+      message: "Account registered successfully",
     });
-    Logger.log("register", "post", `Registered new user: ${email}`);
-  } catch (error) {
-    Logger.error("register", "post", `Internal server error: ${error.message}`);
-    res.status(500).json({ message: error.message });
-  }
+
+  } catch (err) {
+    Logger.error(
+      "register",
+      "post",
+      `Invalid or expired token: ${err.message}`
+    );
+    return res.status(401).json({ message: "Invalid or expired token" });
+  }  
 };
 
 const login = async (req, res) => {

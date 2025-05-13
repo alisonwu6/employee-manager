@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { NotificationContainer, useNotification } from "./NotificationBar";
 import { useRef, useLayoutEffect, useState } from "react";
@@ -15,6 +15,14 @@ const Layout = () => {
       setHeaderHeight(headerRef.current.offsetHeight);
     }
   }, []);
+
+  const location = useLocation();
+  const linkClass = (path) =>
+    `block p-2 ${
+      location.pathname.startsWith(path)
+        ? "bg-primary text-white"
+        : "text-gray-700 hover:bg-primary hover:text-white"
+    }`;
 
   const handleLogout = () => {
     logout();
@@ -34,31 +42,31 @@ const Layout = () => {
           <nav className="mt-4 text-center">
             <Link
               to="/employee"
-              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+              className={linkClass("/employee")}
             >
               Employee
             </Link>
             <Link
               to="/leaves"
-              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+              className={linkClass("/leaves")}
             >
               Leave
             </Link>
             <Link
               to="/notifications"
-              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+              className={linkClass("/notifications")}
             >
               Notification
             </Link>
             <Link
               to="/profile"
-              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2"
+              className={linkClass("/profile")}
             >
               Profile
             </Link>
             <button
               onClick={handleLogout}
-              className="block p-2 text-gray-700 hover:bg-gray-200 border-b-2 w-full"
+              className="block p-2 text-gray-700 hover:text-white hover:bg-primary border-b-2 w-full"
             >
               Logout
             </button>

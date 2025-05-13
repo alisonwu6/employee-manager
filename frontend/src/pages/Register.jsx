@@ -1,24 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosConfig";
+import { jwtDecode } from "jwt-decode";
+import {
+  NotificationContainer,
+  useNotification,
+} from "../components/NotificationBar";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
+    token: "",
     password: "",
   });
+  const [registerInfo, setRegisterInfo] = useState({
+    email: "",
+  });
   const navigate = useNavigate();
+  const { showNotification } = useNotification();
+
+  useEffect(() => {
+    const registerToken = new URLSearchParams(window.location.search).get("token");
+
+    if (!registerToken) {
+      navigate("/login");
+      return;
+    } 
+    
+    setFormData((prev) => ({
+      ...prev,
+      token: registerToken,
+      email: registerInfo.email,
+    }));
+
+    const registerInfo = jwtDecode(registerToken);
+    setRegisterInfo({
+      email: registerInfo.email,
+    });
+
+  }, []);
 
   const handleSubmit = async (e) => {
-    console.log("handleSubmit");
     e.preventDefault();
     try {
-      console.log("formData", formData);
-      await axiosInstance.post("/api/auth/register", formData);
-      alert("Registration successful. Please log in.");
+      await axiosInstance.post("/api/auth/register", formData);     
+      showNotification("Successfully registered. Please Log in", "success");
       navigate("/login");
     } catch (error) {
+      alert(`Login failed: ${error.response.data.message}`);
       alert(`Registration failed: ${error.response.data.message}`);
     }
   };
@@ -33,23 +62,12 @@ const Register = () => {
         className="bg-primary-light space-y-4 p-4"
       >
         <div className="flex items-center justify-between">
-          <label className="pl-2 text-blue-500 font-bold">Name</label>
-          <input
-            type="text"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="border border-gray-300 px-2 py-1 w-96"
-          />
-        </div>
-        <div className="flex items-center justify-between">
           <label className="pl-2 text-blue-500 font-bold">Email</label>
           <input
             type="email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            className="border border-gray-300 px-2 py-1 w-96"
+            value={registerInfo.email}
+            className="border border-gray-300 px-2 py-1 w-96 bg-gray-200 text-gray-400 cursor-not-allowed"
+            disabled
           />
         </div>
         <div className="flex items-center justify-between">
@@ -63,16 +81,7 @@ const Register = () => {
             className="border border-gray-300 px-2 py-1 w-96"
           />
         </div>
-        <div className="flex justify-between items-center">
-          <div className="text-white font-bold">
-            Have an account?
-            <Link
-              to="/login"
-              className="underline ml-2"
-            >
-              Login
-            </Link>
-          </div>
+        <div className="flex justify-end">
           <button
             type="submit"
             className="bg-white text-primary p-2 rounded"
