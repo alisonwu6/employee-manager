@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
   salary: { type: Number },
   position: { type: String },
   department: { type: String },
+  active: { type: Boolean, default: false },
 });
 
 userSchema.pre("save", async function (next) {

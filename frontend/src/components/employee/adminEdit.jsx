@@ -10,7 +10,8 @@ const EmployeeEdit = () => {
         email: '',
         position: '',
         department: '',
-        salary: ''
+        salary: '',
+        role: 'employee'
     });
 
     const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ const EmployeeEdit = () => {
                         position: employee.position || '',
                         department: employee.department || '',
                         salary: employee.salary || '',
+                        role: employee.role || ''
                     });
                 } else {
                     setError('Employee not found');
@@ -54,7 +56,7 @@ const EmployeeEdit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         try {
             await axiosInstance.put(`/api/employees/${id}`, formData, {headers: { Authorization: `Bearer ${token}` }});
             navigate('/employee')
@@ -87,33 +89,64 @@ const EmployeeEdit = () => {
                 <div className="bg-white p-5 shadow-md">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="name">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="name">
                                 Name:
-                            </lable>
+                            </label>
                             <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="email">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="email">
                                 Email:
-                            </lable>
+                            </label>
                             <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="position">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="admin">
+                                Admin:
+                            </label>
+                            <input
+                                type="checkbox"
+                                checked={formData.role === "admin"}
+                                onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    role: e.target.checked ? "admin" : "employee",
+                                })
+                                }
+                                className="form-checkbox h-4 w-4 text-blue-600"
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="position">
                                 Position:
-                            </lable>
+                            </label>
                             <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="mb-4">
-                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="department">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="department">
                                 Department:
-                            </lable>
-                            <input type="text" id="department" name="department" value={formData.department} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                            </label>
+                            <select
+                                value={formData.department}
+                                onChange={(e) =>
+                                    setFormData({ ...formData, department: e.target.value })
+                                }
+                                className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            >
+                                <option value="">Select an option</option>
+                                <option value="finance">Finance</option>
+                                <option value="operations">Operations</option>
+                                <option value="sales">Sales</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="frontend">Frontend</option>
+                                <option value="backend">Backend</option>
+                                <option value="design">Design</option>
+                            </select>
                         </div>
                         <div className="mb-6">
-                            <lable className="block text-primary text-sm font-bold mb-2" htmlFor="salary">
+                            <label className="block text-primary text-sm font-bold mb-2" htmlFor="salary">
                                 Salary:
-                            </lable>
+                            </label>
                             <input type="number" id="salary" name="salary" value={formData.salary} onChange={handleChange} className="text-sm shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
                         </div>
                         <div className="flex justify-between">
