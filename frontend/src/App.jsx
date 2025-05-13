@@ -20,7 +20,7 @@ function App() {
             element={<Layout />}
           >
             <Route
-              path="/employee"
+              path="/employee/*"
               element={
                 <ProtectedRoute>
                   <Employee />

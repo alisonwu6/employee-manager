@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const errorHandlerMiddleware = require("./middleware/errorHandlerMiddleware");
 
+
 dotenv.config();
 
 const app = express();
@@ -14,13 +15,19 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/users", require("./routes/user"));
 app.use("/api/health", require("./routes/health"));
+
 app.use("/api/notifications", require("./routes/notification"));
 app.use("/api/leaves", require("./routes/leave"));
 
 // app.get("/test-error", (req, res) => {
 //   throw new Error("testing errorHandlerMiddleware");
 // });
+
+
+app.use("/api/employees", require("./routes/employee"));
+
 app.use(errorHandlerMiddleware);
+
 
 // Export the app object for testing
 if (require.main === module) {
