@@ -90,6 +90,7 @@ function Profile() {
                   }
                   className="border border-gray-300 px-2 py-1 w-full"
                 >
+                  <option value="">Select an option</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="others">Others</option>
@@ -150,7 +151,7 @@ function Profile() {
                 <input
                   type="text"
                   value={formData.position}
-                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border capitalize border-gray-300 px-2 py-1 w-full "
                   disabled
                 />
               </div>
@@ -160,8 +161,8 @@ function Profile() {
                 </label>
                 <input
                   type="text"
-                  value={formData.Department}
-                  className="bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-300 px-2 py-1 w-full "
+                  value={formData.department}
+                  className="bg-gray-100 text-gray-400 cursor-not-allowed border capitalize border-gray-300 px-2 py-1 w-full "
                   disabled
                 />
               </div>
