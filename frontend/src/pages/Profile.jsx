@@ -166,7 +166,7 @@ function Profile() {
                 />
               </div>
               <div className="flex justify-end">
-                <button className="bg-primary text-white p-2 rounded">
+                <button className="text-sm bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                   Save
                 </button>
               </div>

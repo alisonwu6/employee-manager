@@ -153,7 +153,7 @@ const EmployeeEdit = () => {
                             <button type="button" onClick={handleDelete} className="text-sm bg-orange-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Delete
                             </button>
-                            <button type="submit" className="text-sm bg-primary hover:bg-blue-100 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" className="text-sm bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Update
                             </button>
                         </div>

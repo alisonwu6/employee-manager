@@ -140,7 +140,7 @@ export default function LeavePage() {
                   });
                 }} required></textarea>
               </div>
-              <button className="bg-[#6096B4] text-white font-bold px-6 py-2 rounded shadow" onClick={handeReadRequest} disabled={leaveBalance <= -5}>
+              <button className="text-sm bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handeReadRequest} disabled={leaveBalance <= -5}>
                 Submit request
               </button>
             </div>
