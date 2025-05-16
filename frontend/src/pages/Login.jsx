@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosConfig";
+import { NotificationContainer, useNotification } from "../components/NotificationBar";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +11,17 @@ const Login = () => {
   });
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { showNotification } = useNotification();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axiosInstance.post("/api/auth/login", formData);
       login(response.data);
+      showNotification(
+        "Login Successfully",
+        "success"
+      );
       navigate("/employee");
     } catch (error) {
       alert(`Login failed: ${error.response.data.message}`);
