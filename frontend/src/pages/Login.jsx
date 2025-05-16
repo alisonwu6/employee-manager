@@ -53,16 +53,7 @@ const Login = () => {
             className="border border-gray-300 px-2 py-1 w-96"
           />
         </div>
-        <div className="flex justify-between items-center">
-          <div className="text-white font-bold">
-            Create an account?
-            <Link
-              to="/register"
-              className="underline ml-2"
-            >
-              Register
-            </Link>
-          </div>
+        <div className="flex justify-end items-center">
           <button className="bg-white text-primary p-2 rounded">Login</button>
         </div>
       </form>
