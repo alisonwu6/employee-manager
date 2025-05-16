@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosConfig";
+import { NotificationContainer, useNotification } from "../components/NotificationBar";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +11,17 @@ const Login = () => {
   });
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { showNotification } = useNotification();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axiosInstance.post("/api/auth/login", formData);
       login(response.data);
+      showNotification(
+        "Login Successfully",
+        "success"
+      );
       navigate("/employee");
     } catch (error) {
       alert(`Login failed: ${error.response.data.message}`);
@@ -53,17 +59,8 @@ const Login = () => {
             className="border border-gray-300 px-2 py-1 w-96 shadow-md"
           />
         </div>
-        <div className="flex justify-between items-center">
-          <div className="text-white font-bold">
-            Create an account?
-            <Link
-              to="/register"
-              className="underline ml-2"
-            >
-              Register
-            </Link>
-          </div>
-          <button className="shadow-md bg-primary text-white p-2 rounded text-medium font-medium hover:bg-white hover:text-primary cursor pointer">Login</button>
+        <div className="flex justify-end items-center">
+          <button className="bg-white text-primary p-2 rounded">Login</button>
         </div>
       </form>
     </div>

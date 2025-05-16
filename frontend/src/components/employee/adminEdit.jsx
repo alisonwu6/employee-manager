@@ -2,6 +2,10 @@ import React, {useState, useEffect} from "react";
 import { ServerRouter, useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../api/axiosConfig";
 import {useAuth} from "../../contexts/AuthContext";
+import {
+  NotificationContainer,
+  useNotification,
+} from "../../components/NotificationBar";
 
 const EmployeeEdit = () => {
     const {id} = useParams();
@@ -17,6 +21,7 @@ const EmployeeEdit = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { showNotification } = useNotification();
 
     const {user, token} = useAuth();
     useEffect(() => {
@@ -59,6 +64,7 @@ const EmployeeEdit = () => {
         
         try {
             await axiosInstance.put(`/api/employees/${id}`, formData, {headers: { Authorization: `Bearer ${token}` }});
+            showNotification("Employee Updated", "success");
             navigate('/employee')
         } catch(err){
             setError(err.message);
@@ -69,6 +75,7 @@ const EmployeeEdit = () => {
         if (window.confirm('Are you sure you want to delete this employee?')){
             try {
                 await axiosInstance.delete(`/api/employees/${id}`, {headers: { Authorization: `Bearer ${token}` }});
+                showNotification("Employee Deleted", "success");
                 navigate('/employee');
             } catch (err) {
                 setError(err.message);
