@@ -36,20 +36,13 @@ const updateProfile = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const { name, gender, phone, address } = req.body;
-    user.name = name || user.name;
+    const { gender, phone, address } = req.body;
     user.gender = gender || user.gender;
     user.phone = phone || user.phone;
     user.address = address || user.address;
 
     const updatedUser = await user.save();
-    res.json({
-      id: updatedUser.id,
-      name: updatedUser.name,
-      gender: updatedUser.gender,
-      phone: updatedUser.phone,
-      address: updatedUser.address,
-    });
+    res.json({ message: "Profile updated successfully" });
     Logger.log("profile", "post", `UserId: ${req.user.id}'s profile`);
   } catch (error) {
     Logger.error("profile", "post", `Internal server error: ${error.message}`);

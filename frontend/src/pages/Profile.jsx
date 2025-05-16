@@ -47,7 +47,7 @@ function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.post("/api/users/profile", formData, {
+      await axiosInstance.put("/api/users/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       showNotification("Profile Updated", "success");
