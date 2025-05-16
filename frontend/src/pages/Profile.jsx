@@ -60,17 +60,17 @@ function Profile() {
     <div className="bg-white p-6 shadow-lg">
       <div className="grid grid-cols-[6fr_4fr] gap-4">
         <div className="">
-          <h1 className="text-2xl font-bold text-center bg-primary py-2 text-white">
+          <h1 className="text-lg font-medium text-center bg-primary py-2 text-white">
             Profile
           </h1>
-          <div className="bg-blue-100 p-4">
+          <div className="bg-[#E5F5FE] p-4">
             <form
               onSubmit={handleSubmit}
               className="bg-white space-y-4 p-4"
             >
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Name
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Name:
                 </label>
                 <input
                   type="text"
@@ -80,8 +80,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Gender
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Gender:
                 </label>
                 <select
                   value={formData.gender}
@@ -97,8 +97,8 @@ function Profile() {
                 </select>
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Phone
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Phone:
                 </label>
                 <input
                   type="text"
@@ -110,8 +110,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Address
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Address:
                 </label>
                 <input
                   type="text"
@@ -123,8 +123,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Email
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Email:
                 </label>
                 <input
                   type="text"
@@ -134,8 +134,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Salary
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Salary:
                 </label>
                 <input
                   type="text"
@@ -145,8 +145,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Position
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Position:
                 </label>
                 <input
                   type="text"
@@ -156,8 +156,8 @@ function Profile() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <label className="min-w-[120px] pl-2 text-blue-500 font-bold">
-                  Department
+                <label className="min-w-[120px] pl-2 text-primary text-md font-bold">
+                  Department:
                 </label>
                 <input
                   type="text"
@@ -167,7 +167,7 @@ function Profile() {
                 />
               </div>
               <div className="flex justify-end">
-                <button className="text-sm bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <button className="text-md bg-primary hover:bg-blue-100 hover:text-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                   Save
                 </button>
               </div>
@@ -175,7 +175,7 @@ function Profile() {
           </div>
         </div>
         <div className=" bg-primary p-6">
-          <div className="bg-gray-100 p-6 h-full flex justify-center items-center">
+          <div className="bg-[#E5F5FE] p-6 h-full flex justify-center items-center">
             <img
               src={avatar}
               alt="Avatar"

@@ -53,38 +53,38 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-primary w-[600px] p-6 mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4 text-center bg-white py-2 text-primary">
+    <div className="bg-primary w-[600px] p-6 mx-auto mt-10 shadow-md">
+      <h1 className="text-lg font-medium text-center bg-white py-2 text-primary">
         Register
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-primary-light space-y-4 p-4"
+        className="bg-primary-light space-y-4 p-4 shadow-md"
       >
         <div className="flex items-center justify-between">
-          <label className="pl-2 text-blue-500 font-bold">Email</label>
+          <label className="pl-2 text-medium font-medium text-white">Email:</label>
           <input
             type="email"
             value={registerInfo.email}
-            className="border border-gray-300 px-2 py-1 w-96 bg-gray-200 text-gray-400 cursor-not-allowed"
+            className="border border-gray-300 px-2 py-1 w-96 bg-gray-200 text-gray-400 cursor-not-allowed shadow-md"
             disabled
           />
         </div>
         <div className="flex items-center justify-between">
-          <label className="pl-2 text-blue-500 font-bold">Password</label>
+          <label className="pl-2 text-medium font-medium text-white">Password:</label>
           <input
             type="password"
             value={formData.password}
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
-            className="border border-gray-300 px-2 py-1 w-96"
+            className="border border-gray-300 px-2 py-1 w-96 shadow-md"
           />
         </div>
         <div className="flex justify-end">
           <button
             type="submit"
-            className="bg-white text-primary p-2 rounded"
+            className="shadow-md bg-white text-primary text-medium font-medium p-2 rounded cursor pointer hover:bg-primary hover:text-white"
           >
             Register
           </button>

@@ -23,34 +23,34 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-primary w-[600px] p-6 mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4 text-center bg-white py-2 text-primary">
-        Login
+    <div className="bg-white w-[600px] p-6 mx-auto mt-10 shadow-md">
+      <h1 className="text-2xl text-lg font-medium text-center bg-primary py-2 text-white">
+        Log in
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-primary-light space-y-4 p-4"
+        className="bg-primary-light space-y-4 p-4 shadow-md"
       >
         <div className="flex items-center justify-between">
-          <label className="pl-2 text-blue-500 font-bold">Email</label>
+          <label className="pl-2 text-white text-medium font-medium">Email:</label>
           <input
             type="email"
             value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
-            className="border border-gray-300 px-2 py-1 w-96"
+            className="border border-gray-300 px-2 py-1 w-96 shadow-md"
           />
         </div>
         <div className="flex items-center justify-between">
-          <label className="pl-2 text-blue-500 font-bold">Password</label>
+          <label className="pl-2 text-white text-medium font-medium">Password:</label>
           <input
             type="password"
             value={formData.password}
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
-            className="border border-gray-300 px-2 py-1 w-96"
+            className="border border-gray-300 px-2 py-1 w-96 shadow-md"
           />
         </div>
         <div className="flex justify-between items-center">
@@ -63,7 +63,7 @@ const Login = () => {
               Register
             </Link>
           </div>
-          <button className="bg-white text-primary p-2 rounded">Login</button>
+          <button className="shadow-md bg-primary text-white p-2 rounded text-medium font-medium hover:bg-white hover:text-primary cursor pointer">Login</button>
         </div>
       </form>
     </div>

@@ -28,3 +28,125 @@
 2025-05-12T22:08:05.274Z - Error : [login | post] - Message: Invalid email or password: 
 2025-05-12T22:08:34.949Z - Log : [login | post] - Message: login attempt: sean@sean.com
 2025-05-12T22:08:35.061Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-14T04:44:26.849Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T04:44:26.850Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:09:55.687Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-14T05:09:55.827Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-14T05:12:03.406Z - Log : [register | post] - Message: register: becky@becky.com
+2025-05-14T05:12:15.976Z - Log : [login | post] - Message: login attempt: becky@becky.com
+2025-05-14T05:12:16.074Z - Log : [login | post] - Message: logged in: becky@becky.com
+2025-05-14T05:13:00.206Z - Log : [profile | get] - Message: UserId: 68242603dcbd0b3fc95f3fbc
+2025-05-14T05:13:00.206Z - Log : [profile | get] - Message: UserId: 68242603dcbd0b3fc95f3fbc
+2025-05-14T05:13:00.223Z - Log : [profile | get] - Message: UserId: 68242603dcbd0b3fc95f3fbc
+2025-05-14T05:13:00.223Z - Log : [profile | get] - Message: UserId: 68242603dcbd0b3fc95f3fbc
+2025-05-14T05:13:13.027Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-14T05:13:13.129Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-14T05:14:42.770Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:14:42.769Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:14:42.785Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:14:42.785Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:14:53.462Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-14T05:14:53.556Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-14T05:15:20.314Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:15:20.314Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:15:20.328Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-14T05:15:20.328Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:25:34.001Z - Log : [login | post] - Message: login attempt: 
+2025-05-16T01:25:34.021Z - Error : [login | post] - Message: Invalid email or password: 
+2025-05-16T01:25:47.840Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T01:25:47.946Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T01:39:29.753Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T01:39:29.878Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T01:40:52.545Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T01:40:52.640Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T01:40:58.836Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:40:58.835Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:40:58.854Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:40:58.854Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:41:08.583Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T01:41:08.679Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T01:49:24.878Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:49:24.879Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:49:24.893Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:49:24.893Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:56:41.187Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:56:41.186Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:56:41.204Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:56:41.204Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T01:57:36.319Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T01:57:36.419Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T02:10:09.569Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:10:09.568Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:10:09.582Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:10:09.581Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:18:15.568Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:18:15.568Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:18:15.583Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:18:15.583Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:24.020Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:24.020Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:24.032Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:24.032Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:58.774Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:58.774Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:58.790Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:19:58.791Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:14.152Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:14.152Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:14.164Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:14.164Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:33.082Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:33.082Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:33.098Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:33.098Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:57.601Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:57.601Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:57.615Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:20:57.615Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:26:01.522Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:26:01.522Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:26:01.535Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:26:01.536Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T02:28:00.905Z - Log : [register | post] - Message: register: lily@lily.com
+2025-05-16T02:28:12.181Z - Log : [login | post] - Message: login attempt: lily@lily.com
+2025-05-16T02:28:12.277Z - Log : [login | post] - Message: logged in: lily@lily.com
+2025-05-16T02:29:17.477Z - Log : [profile | get] - Message: UserId: 6826a26a9de13e658a90bbf8
+2025-05-16T02:29:17.475Z - Log : [profile | get] - Message: UserId: 6826a26a9de13e658a90bbf8
+2025-05-16T02:29:17.491Z - Log : [profile | get] - Message: UserId: 6826a26a9de13e658a90bbf8
+2025-05-16T02:29:17.492Z - Log : [profile | get] - Message: UserId: 6826a26a9de13e658a90bbf8
+2025-05-16T05:58:16.528Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T05:58:16.674Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T06:13:26.493Z - Log : [login | post] - Message: login attempt: sean@sean.com
+2025-05-16T06:13:26.601Z - Log : [login | post] - Message: logged in: sean@sean.com
+2025-05-16T06:14:14.679Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:14.679Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:14.699Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:14.699Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:25.662Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:25.661Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:25.674Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:14:25.674Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:26:57.501Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:26:57.503Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:26:57.528Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:26:57.528Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:01.331Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:01.331Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:01.343Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:01.343Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:57.098Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:57.099Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:57.111Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:30:57.111Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:33:37.471Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:33:37.471Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:33:37.483Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:33:37.483Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:05.409Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:05.410Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:05.429Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:05.428Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:15.029Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:15.030Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:15.045Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07
+2025-05-16T06:45:15.045Z - Log : [profile | get] - Message: UserId: 681feb65e6a03c9c996b7e07

@@ -83,12 +83,12 @@ export default function LeavePage() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-stretch items-start min-h-screen bg-gradient-to-br from-[#e0ecf7] to-[#5b97b1] p-4 md:p-8 w-full overflow-x-auto">
+    <div className="flex flex-col md:flex-row gap-8 justify-stretch items-start min-h-screen p-4 md:p-8 w-full overflow-x-auto">
       <div className="bg-white rounded shadow-lg p-6 flex-1 max-w-full mb-8 md:mb-0 border-2">
-        <div className="bg-[#8EBFD8] text-[#274c5b] text-center font-bold py-2 rounded-t">
+        <div className="bg-primary text-white text-center font-bold py-2 rounded-t">
           Request For Day Off
         </div>
-        <div className="bg-[#6096B4] p-6 flex flex-col items-center rounded-b w-full">
+        <div className="bg-[#E5F5FE] p-6 flex flex-col items-center rounded-b w-full">
           <div className="flex flex-row w-full items-start gap-6 justify-evenly bg-white p-6 pb-10">
             <div className="flex-shrink-0">
               <Calendar
@@ -106,11 +106,11 @@ export default function LeavePage() {
             <div className="flex flex-col gap-4 justify-center flex-shrink-0 min-w-[170px]">
               <div className="flex items-center text-white font-bold">
                 <span className="text-[#6096B4]">Leave balance:</span>
-                <span className="ml-2 bg-[#c9dbe9] text-[#274c5b] px-2 py-1 rounded font-bold text-lg">{leaveBalance}</span>
+                <span className="ml-2 bg-gray-200 text-gray-600 px-2 py-1 rounded font-bold text-lg">{leaveBalance}</span>
               </div>
               <div className="flex items-center text-white font-bold">
                 <span className="text-[#6096B4]">Selected date:</span>
-                <span className="ml-2 bg-[#c9dbe9] text-[#274c5b] px-2 py-1 rounded font-bold text-lg">
+                <span className="ml-2 bg-gray-200 text-gray-600 px-2 py-1 rounded font-bold text-lg">
                   {formData.selectedDate ? new Date(formData.selectedDate).toLocaleDateString("en-GB") : "--/--/--"}
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function LeavePage() {
               </div>
               <div className="flex items-center text-white font-bold">
                 <span className="text-[#6096B4]">Reason:</span>
-                <textarea className="ml-2 border text-[#274c5b] px-2 py-1 rounded font-bold text-lg" 
+                <textarea className="ml-2 border text-gray-600 px-2 py-1 rounded font-bold text-lg" 
                 placeholder="Please type your reason here.."
                 value={formData.reason}
                 onChange={(e) => {
@@ -152,7 +152,7 @@ export default function LeavePage() {
       {user.isAdmin && (
           <>
             <div className="mb-5">
-              <div className="bg-[#8EBFDB] text-[#274c5b] text-center font-bold py-2 rounded-t" onClick={handleLeaveRequestToggle}>
+              <div className="bg-primary text-white text-center font-bold py-2 rounded-t" onClick={handleLeaveRequestToggle}>
                 Leave Request {leaveRequestIsOpen ? '▲' : '▼'}
               </div>
               {leaveRequestIsOpen && (
@@ -193,7 +193,7 @@ export default function LeavePage() {
         )}
 
         <div>
-          <div className="bg-[#8EBFDB] text-[#274c5b] text-center font-bold py-2 rounded-t" onClick={handleRequestHistoryToggle}>
+          <div className="bg-primary text-white text-center font-bold py-2 rounded-t" onClick={handleRequestHistoryToggle}>
             Request History {requestHistoryIsOpen ? '▲' : '▼'}
           </div>
           {requestHistoryIsOpen && (
