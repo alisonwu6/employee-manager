@@ -20,8 +20,8 @@ const Layout = () => {
   const linkClass = (path) =>
     `block p-2 ${
       location.pathname.startsWith(path)
-        ? "bg-primary text-white"
-        : "text-gray-700 hover:bg-primary hover:text-white"
+        ? "bg-primary text-white font-bold"
+        : "text-primary font-bold hover:bg-primary hover:text-white hover:font-bold"
     }`;
 
   const handleLogout = () => {
@@ -42,31 +42,31 @@ const Layout = () => {
           <nav className="mt-4 text-center">
             <Link
               to="/employee"
-              className={linkClass("/employee")}
+              className={`${linkClass("/employee")} border-b-2`}
             >
               Employee
             </Link>
             <Link
               to="/leaves"
-              className={linkClass("/leaves")}
+              className={`${linkClass("/leaves")} border-b-2`}
             >
               Leave
             </Link>
             <Link
               to="/notifications"
-              className={linkClass("/notifications")}
+              className={`${linkClass("/notifications")} border-b-2`}
             >
               Notification
             </Link>
             <Link
               to="/profile"
-              className={linkClass("/profile")}
+              className={`${linkClass("/profile")} border-b-2`}
             >
               Profile
             </Link>
             <button
               onClick={handleLogout}
-              className="block p-2 text-gray-700 hover:text-white hover:bg-primary border-b-2 w-full"
+              className="block p-2 text-primary hover:text-white hover:bg-primary border-b-2 w-full hover:font-bold font-bold"
             >
               Logout
             </button>
@@ -82,9 +82,8 @@ const Layout = () => {
           <h1 className="text-primary text-2xl font-bold">Employee Manager</h1>
           {user && (
             <div>
-              <span>Hi,</span>
-              <span className="font-bold px-1">{user?.name}</span>
-              <span>({user?.isAdmin ? "Admin" : "Employee"})</span>
+              <span className="text-primary font-bold">{user?.isAdmin ? "Admin" : "Employee"} : </span>
+              <Link to="/Profile" className="font-bold px-1 text-primary underline cursor-pointer">{user?.name}</Link>
             </div>
           )}
         </header>

@@ -63,6 +63,7 @@ const UserEmployeeTable = () => {
                                 <td className="py-4 whitespace-nowrap border"></td>
                                 <td className="py-4 whitespace-nowrap border"></td>
                                 <td className="py-4 whitespace-nowrap border"></td>
+                                <td className="py-4 whitespace-nowrap border"></td>
                             </tr>
                         ))}
                     </tbody>

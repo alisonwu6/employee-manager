@@ -36,17 +36,17 @@ function Notification() {
 
   return (
     <div className="bg-white p-6 shadow-lg">
-      <h1 className="text-2xl font-bold text-center bg-[#8EBFDB] py-2 text-[#144F6F] notification-header">
+      <h1 className="text-lg font-medium text-center bg-primary py-2 text-white notification-header">
         Notification
       </h1>
       <table className="w-full notification-table">
         <thead>
           <tr className="bg-[#E5F5FE]">
-            <th className="py-2 px-4 text-left font-bold text-[#6096B4]">Name</th>
-            <th className="py-2 px-4 text-left font-bold text-[#6096B4]">
+            <th className="py-2 px-4 text-left font-bold text-primary text-medium font-medium">Name</th>
+            <th className="py-2 px-4 text-left font-bold text-primary text-medium font-medium">
               Message (Click to go to the details page)
             </th>
-            <th className="py-2 px-4 text-left font-bold text-[#6096B4]">Date</th>
+            <th className="py-2 px-4 text-left font-bold text-primary text-medium font-medium">Date</th>
           </tr>
         </thead>
         <tbody>

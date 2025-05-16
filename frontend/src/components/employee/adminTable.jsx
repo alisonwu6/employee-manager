@@ -47,7 +47,7 @@ const AdminEmployeeTable = () => {
                             Employee Record
                         </h2>
                     </div>
-                    <button onClick={handleAdd} className="text-sm bg-sky-800 text-white px-4 py-1 rounded hover:bg-blue-100 hover:text-primary absolute right-10 top-1/2 transform -translate-y-1/2"><span>Add</span></button>
+                    <button onClick={handleAdd} className="text-sm bg-sky-800 text-white px-4 py-1 rounded hover:bg-blue-100 hover:text-primary absolute right-6 top-1/2 transform -translate-y-1/2"><span>Add</span></button>
                 </div>
 
                 <table className="w-full bg-white border-collapse">
@@ -82,6 +82,8 @@ const AdminEmployeeTable = () => {
 
                         {emptyRows.map((_, index) => (
                             <tr key={`empty-${index}`} className="bg-white border-b">
+                                <td className="py-4 whitespace-nowrap border"></td>
+                                <td className="py-4 whitespace-nowrap border"></td>
                                 <td className="py-4 whitespace-nowrap border"></td>
                                 <td className="py-4 whitespace-nowrap border"></td>
                                 <td className="py-4 whitespace-nowrap border"></td>
